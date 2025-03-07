@@ -4,7 +4,7 @@ ROS2 nodes for collecting, visualizing, saving, and loading robot trajectory dat
 1. **Trajectory Saver**: Collects and exports real-time trajectory
 2. **Trajectory Loader**: Loads and visualizes saved trajectories
 
-![Trajectory Demo](https://imgur.com/PJjtcvp)
+![Trajectory Demo](misc/simplescreenrecorder-2025-03-07_15.29.17.gif)
 
 
 ## Key Features
@@ -13,6 +13,12 @@ ROS2 nodes for collecting, visualizing, saving, and loading robot trajectory dat
 - **Frame Transformation**: TF2-integrated coordinate conversion
 - **Parallel Processing**: Async file I/O and transformations
 - **Time-Based Filtering**: Temporal data pruning and queries
+
+
+![Image 2 Description](misc/unnamed.png)
+![Image 1 Description](misc/bd099d66-41e5-46d7-b892-33e1a8be1010.png)
+
+Red is for realtime trajectory which can then be saved. Green is for the trajectory which is loaded from the file after saving.
 
 ## Installation
 
@@ -31,7 +37,7 @@ sudo apt-get install libyaml-cpp-dev nlohmann-json3-dev
 ```bash
 mkdir -p ~/trajectory_ws/src
 cd ~/trajectory_ws/src
-Clone the repo
+git clone https://github.com/Nil69420/trajectory_pkg.git
 cd ..
 colcon build --symlink-install
 ```
@@ -40,20 +46,21 @@ colcon build --symlink-install
 
 ### Trajectory Saver Node
 ```bash
-ros2 launch trajectory_pkg trajectory.launch.py
+source install/setup.bash
+ros2 launch trajectory_pkg launch.py
 ```
 
 **Save Service Call**:
 ```bash
 ros2 service call /save_trajectory trajectory_pkg/srv/SaveTrajectory \
-  "{duration: 30.0, format: 'json', file_path: '/tmp/trajectory.json'}"
+  "{duration: 30.0, format: 'json', file_path: '/path/to/filename.json'}"
 ```
 
 ### Trajectory Loader Node
 ```bash
 ros2 run trajectory_pkg trajectory_loader_node \
   --ros-args \
-  -p file_path:=/tmp/trajectory.json \
+  -p file_path:=/path/to/filename.json \
   -p format:=json \
   -p source_frame:=odom
 ```
@@ -91,6 +98,8 @@ ros2 run trajectory_pkg trajectory_loader_node \
 | Topic                 | Type                             | Description               |
 |-----------------------|----------------------------------|---------------------------|
 | `/loaded_trajectory`  | `visualization_msgs/MarkerArray`| Processed trajectory      |
+
+
 
 
 ## Algorithm Overview For Trajectory Saver
