@@ -16,7 +16,7 @@ void Formatter<FormatTraits::CSV>::serializePoint(std::string& buffer, double ti
 }
 
 void Formatter<FormatTraits::CSV>::serializeFooter(std::string& /*buffer*/) {
-    // No footer needed for CSV; parameter name omitted to suppress unused warnings.
+    //  parameter name omitted to suppress unused warnings.
 }
 
 // --- JSON Formatter Implementation ---
@@ -60,7 +60,7 @@ void Formatter<FormatTraits::YAML>::serializePoint(std::string& buffer, double t
 }
 
 void Formatter<FormatTraits::YAML>::serializeFooter(std::string& /*buffer*/) {
-    // No footer needed for YAML.
+    
 }
 
 // --- CSV writeData Specialization Implementation ---
