@@ -15,13 +15,7 @@ ROS2 nodes for collecting, visualizing, saving, and loading robot trajectory dat
 
 ### Dependencies
 ```xml
-<depend>rclcpp</depend>
-<depend>geometry_msgs</depend>
-<depend>visualization_msgs</depend>
-<depend>nav_msgs</depend>
-<depend>tf2_ros</depend>
-<depend>tf2_geometry_msgs</depend>
-<depend>rclcpp_components</depend>
+sudo apt-get install ros-humble-rclcpp ros-humble-geometry_msgs ros-humble-visualization_msgs ros-humble-nav_msgs ros-humble-tf2_ros ros-humble-tf2_geometry_msgs ros-humble-rclcpp_components ros-humble-turtlebot3*
 ```
 
 ### Third-Party Libraries
