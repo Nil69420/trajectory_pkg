@@ -4,6 +4,9 @@ ROS2 nodes for collecting, visualizing, saving, and loading robot trajectory dat
 1. **Trajectory Saver**: Collects and exports real-time trajectory
 2. **Trajectory Loader**: Loads and visualizes saved trajectories
 
+![Trajectory Demo](https://imgur.com/PJjtcvp)
+
+
 ## Key Features
 - **Multi-Format Support**: CSV, JSON, YAML
 - **Efficient Visualization**: Double-buffered markers
